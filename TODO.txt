@@ -1,0 +1,26 @@
+TODO LIST :
+
+    OK - revoir organisation note sur manche via accordage, erreur corde 1, 2 et 6 a l'initialisation
+
+    OK - quand changement d'accordage, si gamme affiché, un décalage se créé avec le tableau récapitulatif
+
+    OK - tab, mettre en place le changement de style pour l'onglet sélectionné
+
+    AP OK - changement de couleur pour toute les notes d'un meme type
+
+    OK - enlever le choix du type de note
+
+    EN COURS - page admin : manage gamme, manage accordage.
+
+    - resize : problème avec la perte de la gamme afficher et l'événement sur les notes
+
+    - onglet manche : permettre d'enregistrer un manche et pouvoir le recharger plus tard
+
+
+    STYLE :
+
+    - améliorer affichage des notes sur le manche
+
+    - choisir une meilleure typo pour le texte
+
+    - P/E? mettre une 3d sur la guitare pour améliorer l'effet visuel

@@ -1,0 +1,32 @@
+{{!--div qui englobe toute la page, met en place la grille--}}
+<div class="grid">
+
+    {{!--div pour le svg, est remplie dyn par le js--}}
+    <div class="col-24" id="svg"></div>
+
+    {{!--div pour le reste de la page, les onglets et leurs contenus--}}
+    <div class="col-24 main-container">
+
+        {{> nav}}
+
+        <div class="col-24 container">
+        
+            {{> gamme}}
+
+            {{> accordage}}
+
+            {{!--{{> manche}}--}}
+
+            {{!--{{> parametre}}--}}
+        
+        </div>
+
+    </div>
+
+</div>
+
+<script src="../javascripts/common.js"></script>
+<script src="../javascripts/tabs.js"></script>
+<script src="../javascripts/svg.js"></script>
+<script src="../javascripts/guitare.js"></script>
+<script src="../javascripts/main.js"></script>

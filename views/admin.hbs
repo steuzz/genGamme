@@ -1,0 +1,96 @@
+<div class="grid">
+
+    <section class="col-12 manage">
+        <h3> Liste des gammes </h3>
+        <ul>
+            <li>
+                <button id="addGamme" type="button">
+                    Ajouter une gamme
+                </button>
+            </li>
+            {{#each gammes}}
+                <li> 
+                    {{this.name}}
+                    <div>
+                        <a class="btn_modif modifGamme" data-id={{this._id}} data-inters={{this.inters}}><span></span></a>
+                        <a class="btn_delete delGamme"><span></span></a>
+                    </div>  
+                </li>
+            {{/each}}
+        </ul>
+    </section>
+
+    <section class="col-12 manage">
+        <h3> Liste des accordages </h3>
+        <ul>
+            <li>
+                <button id="addAccordage" type="button">
+                    Ajouter un accordage
+                </button>
+            </li>
+            {{#each accords}}
+                <li value={{this._id}}>
+                    {{this.accordage}}
+                    <div>
+                        <a class="btn_modif modifAccordage"><span></span></a>
+                        <a class="btn_delete delAccordage"><span></span></a>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+    </section>
+
+    <section class="modal-gamme" id="gamme">
+        <div class= "modal_container">
+            <div class="modal_header">
+                <span class="close">&times;</span>
+                <h5 ><span></span> gamme</h5>
+            </div>
+            <div class="modal_content">
+                <form id="formGamme">
+                    <input type="text" placeholder="Nom de la gamme" name="name">
+                    <div>
+                        F <input type="checkbox" name="inters" value="F">
+                    </div>
+                    <div>
+                        2m <input type="checkbox" name="inters" value="2m">
+                    </div>
+                    <div>
+                        2M <input type="checkbox" name="inters" value="2M">
+                    </div>
+                    <div>
+                        3m <input type="checkbox" name="inters" value="3m">
+                    </div>
+                    <div>
+                        3M <input type="checkbox" name="inters" value="3M">
+                    </div>
+                    <div>
+                        4j <input type="checkbox" name="inters" value="4j">
+                    </div>
+                    <div>
+                        b5 <input type="checkbox" name="inters" value="b5">
+                    </div>
+                    <div>
+                        5j <input type="checkbox" name="inters" value="5j">
+                    </div>
+                    <div>
+                        6m <input type="checkbox" name="inters" value="6m">
+                    </div>
+                    <div>
+                        6M <input type="checkbox" name="inters" value="6M">
+                    </div>
+                    <div>
+                        7m <input type="checkbox" name="inters" value="7m">
+                    </div>
+                    <div>
+                        7M <input type="checkbox" name="inters" value="7M">
+                    </div>
+                    <button type="button" id="sendData">Envoyer!</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<script src="../javascripts/admin/main.js"></script>

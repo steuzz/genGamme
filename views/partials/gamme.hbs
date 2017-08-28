@@ -1,0 +1,35 @@
+<section class="col-24 content" id="gamme">
+
+    <div class="col-24 useGamme">
+        
+        <select class="col-offset-4 select" id="ch_fondamentale">
+            <option selected="selected">
+                Choix fondamentale
+            </option>
+            {{#each notes.[0]}}
+                {{#each this.notation}}
+                    <option> {{this}} </option>
+                {{/each}}
+            {{/each}}
+        </select>
+
+        <select class="col-offset-4 select" id="ch_gamme">
+            <option selected="selected">
+                Choix gamme
+            </option>
+            {{#each gammes}}
+                <option data-inters={{#arrayToString this.inters}}{{this}}{{/arrayToString}}>
+                    {{this.name}}
+                </option>
+            {{/each}}
+        </select>
+
+        <button id="showGamme" class="col-offset-4 btn"> Show Gamme! </button>
+
+    </div>
+
+    <div class="col-8 col-offset-8 tableau" id="tableGamme">
+        
+    </div>
+
+</section>

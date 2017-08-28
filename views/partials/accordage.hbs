@@ -1,0 +1,22 @@
+<section class="col-24 content" id="accordage">
+
+    <div class="col-24 useAccordage">
+
+        <div class="col-12">
+            <label for="ch_accordage" class="col-offset-4 label">
+                Choix accordage
+            </label>
+            <select class="select" id="ch_accordage">
+                {{#each accords}}
+                    <option value={{this._id}}>
+                        {{#arrayToString this.accordage}}{{this}}{{/arrayToString}}
+                    </option>
+                {{/each}}
+            </select>
+        </div>
+
+        {{#each notes}}
+            <div hidden data-notes={{this.notation}} id="forGetNote"></div>
+        {{/each}}
+    
+    </div>
