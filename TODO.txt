@@ -10,9 +10,9 @@ TODO LIST :
 
     OK - enlever le choix du type de note
 
-    EN COURS - page admin : manage gamme, manage accordage.
+    OK - page admin : manage gamme, manage accordage.
 
-    - resize : problème avec la perte de la gamme afficher et l'événement sur les notes
+    OK - resize : problème avec la perte de la gamme afficher et l'événement sur les notes
 
     - onglet manche : permettre d'enregistrer un manche et pouvoir le recharger plus tard
 

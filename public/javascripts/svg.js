@@ -8,6 +8,7 @@ var drawGuitare = function () {
     this.init = function () {
         createSVG();
         getParams();
+        createDefs();
         drawFond();
         drawFrete();
         drawPoint();
@@ -41,6 +42,29 @@ var drawGuitare = function () {
         svg.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xlink", "http://www.w3.org/1999/xlink");
         target.appendChild(svg);
     };
+
+    var createDefs = function () {
+        var defs = createNSsvg(xmlns, 'defs');
+
+        // radial for the notes
+        var radialGrad = createNSsvg(xmlns, 'radialGradient', {
+            id: 'radialGradNote'
+        });
+        var stop1 = createNSsvg(xmlns, 'stop', {
+            offset: '50%',
+            'stop-color': '#fff',
+        })
+        var stop2 = createNSsvg(xmlns, 'stop', {
+            offset: '100%',
+            'stop-color':  '#fff',
+            'stop-opacity': 0
+        })
+
+        radialGrad.appendChild(stop1);
+        radialGrad.appendChild(stop2);
+        defs.appendChild(radialGrad);
+        svg.appendChild(defs);
+    }
 
     // Fonction pour dessiner le fond de la guitare
     var drawFond = function () {
@@ -200,6 +224,8 @@ var drawGuitare = function () {
         drawCorde();
         self.drawNote(guitare.notes);
         self.drawAccordage(guitare.accordage);
+        console.log('guitare: ', guitare)
+       guitare.gamme.onResize();
     }
 
     // --------------------------------------------------
@@ -319,7 +345,7 @@ var drawGuitare = function () {
                 cy: cy,
                 rx: rx,
                 ry: ry,
-                fill: 'red',
+                fill: "url(#radialGradNote)"
             }
             var note = createNSsvg(xmlns, noteShape, noteAttributes);
             return note;
@@ -334,8 +360,8 @@ var drawGuitare = function () {
                 x: newX,
                 y: y,
                 'text-anchor': 'middle',
-                'font-family': 'Verdana',
-                'font-size': "18" 
+                'font-family': "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif",
+                'font-size': "17"
             }
             var text = createNSsvg(xmlns, shape, attr);
             text.innerHTML = val;
@@ -350,9 +376,9 @@ var drawGuitare = function () {
                 class: 'accordage',
                 id: 'accordage'+(i+1)
             });
-            var shape = createShape(i+1);
+            // var shape = createShape(i+1);
             var text = createText(i+1, accordage[i]);
-            group.appendChild(shape);
+            // group.appendChild(shape);
             group.appendChild(text);
             addSVG(group);
         }
@@ -382,8 +408,9 @@ var drawGuitare = function () {
                 x: newX,
                 y: y,
                 'text-anchor': 'middle',
-                'font-family': 'Verdana',
-                'font-size': "18" 
+                'font-family': "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif",
+                'font-size': "17",
+                fill: '#fff',
             }
             var text = createNSsvg(xmlns, shape, attr);
             text.innerHTML = val;
@@ -475,11 +502,11 @@ var drawGuitare = function () {
         }, 300);
     };
 
-    this.initColor = function () {
-        var parents = document.getElementsByClassName('note');
-        parents = Array.from(parents);
-        parents.forEach(function(elem) {
-            elem.firstChild.setAttribute('fill', 'red');
-        })
-    };
+    // this.initColor = function () {
+    //     var parents = document.getElementsByClassName('note');
+    //     parents = Array.from(parents);
+    //     parents.forEach(function(elem) {
+    //         elem.firstChild.setAttribute('fill', 'red');
+    //     })
+    // };
 };

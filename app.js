@@ -10,6 +10,7 @@ var main = require('./routes/main');
 var admin = require('./routes/admin');
 var addDB = require('./routes/addDB');
 var modifDB = require('./routes/modifDB');
+var delDB = require('./routes/delDB');
 
 hbs.registerPartials(__dirname + '/views/partials', function() {
   console.log('partials registered');
@@ -33,6 +34,7 @@ app.use('/', main);
 app.use('/ad', admin);
 app.use('/addDB', addDB);
 app.use('/modifDB', modifDB);
+app.use('/delDB', delDB);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -65,6 +67,16 @@ hbs.registerHelper('arrayToString', function (value, options) {
   }
   console.log('str: ', str);
   if (str) return str;
+});
+
+hbs.registerHelper('if', function (conditional, options) {
+  console.log('in hbs helper : if');
+  console.log('conditional: ', conditional);
+  if (conditional) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
 });
 
 module.exports = app;

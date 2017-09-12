@@ -12,7 +12,7 @@ function main () {
 
     guitSvg.drawNote(guitare.notes);
     guitSvg.drawAccordage(guitare.accordage);
-    guitSvg.doEvent();
+    // guitSvg.doEvent();
     guitare.doEvent(guitSvg);
 
     window.addEventListener('resize', function(e) {

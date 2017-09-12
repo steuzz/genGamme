@@ -148,6 +148,12 @@ var Gamme = function () {
         self.hasBeenInit = true;
     }
 
+    this.onResize = function () {
+        if (flag) {
+            toggleGamme();
+        }
+    }
+
     // Fonction qui trie le tableau des notes (arguments),
     // pour remplir l'obj notes
     var setNote = function (array) {

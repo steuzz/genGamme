@@ -6,10 +6,8 @@
             <option selected="selected">
                 Choix fondamentale
             </option>
-            {{#each notes.[0]}}
-                {{#each this.notation}}
-                    <option> {{this}} </option>
-                {{/each}}
+            {{#each notes.[0].notation}}
+                <option> {{this}} </option>
             {{/each}}
         </select>
 

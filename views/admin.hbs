@@ -4,13 +4,16 @@
         <h3> Liste des gammes </h3>
         <ul>
             <li>
-                <button id="addGamme" type="button">
+                <button class="btn" id="addGamme" type="button">
                     Ajouter une gamme
                 </button>
             </li>
             {{#each gammes}}
                 <li> 
                     {{this.name}}
+                    <p class="parenthese">
+                        ({{this.inters}})
+                    </p>
                     <div>
                         <a class="btn_modif modifGamme" data-id={{this._id}} data-inters={{this.inters}}><span></span></a>
                         <a class="btn_delete delGamme"><span></span></a>
@@ -24,15 +27,18 @@
         <h3> Liste des accordages </h3>
         <ul>
             <li>
-                <button id="addAccordage" type="button">
+                <button class="btn" id="addAccordage" type="button">
                     Ajouter un accordage
                 </button>
             </li>
             {{#each accords}}
-                <li value={{this._id}}>
-                    {{this.accordage}}
+                <li>
+                    {{this.name}}
+                    <p class="parenthese">
+                        ({{this.accordage}})
+                    </p>
                     <div>
-                        <a class="btn_modif modifAccordage"><span></span></a>
+                        <a class="btn_modif modifAccordage" data-id={{this._id}} data-inters={{this.accordage}}><span></span></a>
                         <a class="btn_delete delAccordage"><span></span></a>
                     </div>
                 </li>
@@ -47,7 +53,7 @@
                 <h5 ><span></span> gamme</h5>
             </div>
             <div class="modal_content">
-                <form id="formGamme">
+                <form>
                     <input type="text" placeholder="Nom de la gamme" name="name">
                     <div>
                         F <input type="checkbox" name="inters" value="F">
@@ -85,7 +91,76 @@
                     <div>
                         7M <input type="checkbox" name="inters" value="7M">
                     </div>
-                    <button type="button" id="sendData">Envoyer!</button>
+                    <button type="button" id="sendDataGamme">Envoyer!</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="modal-accordage" id="accordage">
+        <div class= "modal_container">
+            <div class="modal_header">
+                <span class="close">&times;</span>
+                <h5 ><span></span> accordage</h5>
+            </div>
+            <div class="modal_content">
+                <form>
+                    <input type="text" placeholder="Nom de l'accordage" name="name">
+                    <div>
+                        Note 1
+                        <select class="select" id="selNote1" name="accordage">
+                            <option selected="selected">Choisir note</option>
+                            {{#each notes.[0].notation}}
+                                <option value={{this}}>{{this}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div>
+                        Note 2
+                        <select class="select" id="selNote2" name="accordage"> 
+                            <option selected="selected">Choisir note</option>
+                            {{#each notes.[0].notation}}
+                                <option value={{this}}>{{this}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div>
+                        Note 3
+                        <select class="select" id="selNote3" name="accordage"> 
+                            <option selected="selected">Choisir note</option>
+                            {{#each notes.[0].notation}}
+                                <option value={{this}}>{{this}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div>
+                        Note 4
+                        <select class="select" id="selNote4" name="accordage"> 
+                            <option selected="selected">Choisir note</option>
+                            {{#each notes.[0].notation}}
+                                <option value={{this}}>{{this}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div>
+                        Note 5
+                        <select class="select" id="selNote5" name="accordage"> 
+                            <option selected="selected">Choisir note</option>
+                            {{#each notes.[0].notation}}
+                                <option value={{this}}>{{this}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div>
+                        Note 6
+                        <select class="select" id="selNote6" name="accordage"> 
+                            <option selected="selected">Choisir note</option>
+                            {{#each notes.[0].notation}}
+                                <option value={{this}}>{{this}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <button type="button" id="sendDataAccordage">Envoyer!</button>
                 </form>
             </div>
         </div>

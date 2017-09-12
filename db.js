@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var ObjectId = mongoose.Types.ObjectId;
 
 var promise = mongoose.connect('mongodb://localhost/Guitare', {
   useMongoClient: true
@@ -49,10 +50,11 @@ function model (name, schema, str) {
   obj.collec = mongoose.model(name, schema, str);
 
   obj.add = function (data) {
+    delete data.type;
     var item = new obj.collec(data);
     item.save(function (err, res) {
       if (err) return console.error(err);
-      console.log('res: ', res);
+      console.log('ajout réussit!');
       obj.findAll();
     })
   }
@@ -65,12 +67,24 @@ function model (name, schema, str) {
   }
 
   obj.modif = function (data) {
-    var query = {_id: ObjectId(data.id)};
-    delete data.id;
+    delete data.type;
+    var query = {_id: new ObjectId(data.id)};
     console.log('query: ', query);
     obj.collec.findOneAndUpdate(query, data, function (err, res) {
       if (err) return console.error(err);
+      console.log('modification réussit!');
+      obj.findAll();
+    })
+  }
+
+  obj.delete = function (data) {
+    delete data.type;
+    var query = {_id: new ObjectId(data.id)};
+    console.log('query: ', query);
+    obj.collec.findOneAndRemove(query, function (err, res) {
+      if (err) return console.error(err);
       console.log('res: ', res);
+      console.log('suppression réussit!');
       obj.findAll();
     })
   }

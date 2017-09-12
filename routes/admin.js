@@ -10,7 +10,8 @@ router.get('/', function(req, res, next) {
       title: 'Générateur de Gamme',
       gammes: db.gamme.all,
       notes: note,
-      accords: db.accordage.all
+      accords: db.accordage.all,
+      isAdmin: true
     })
   })
 });

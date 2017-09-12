@@ -5,7 +5,7 @@ var db = require('../db');
 router.post('/', function(req, res, next) {
     console.log('req.body: ', req.body)
     var data = req.body;
-    db[data.type].add(data);  
+    db[data.type].delete(data);
     res.send("Attention à l'échec");
 });
 
